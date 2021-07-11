@@ -1,4 +1,5 @@
 # EMPLOYEE TRACKER [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[Link to video demonstration](https://drive.google.com/file/d/1t1HvMkwojyFOvIQCKinGDrxZOsKSPFl7/view)
 ## Description
 A CLI application for managing a database of employees.
 
