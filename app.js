@@ -57,7 +57,10 @@ function mainMenu(PORT) {
                 printSeperator();
                 return inquirer.prompt(addRoleQuestions(departments))
             })
-            .then(roleInput => postOrPutIntoAPI('post', baseUrl, 'roles', { title: roleInput.roleTitle, salary: roleInput.roleSalary, department_id: roleInput.roleDepartment.index }))
+            .then(roleInput => {
+                const departmentId = departments[0].filter(dept => dept.name === roleInput.roleDepartment)[0].id;
+                return postOrPutIntoAPI('post', baseUrl, 'roles', { title: roleInput.roleTitle, salary: roleInput.roleSalary, department_id: departmentId })
+            })
             .then(response => printAndBackToMainMenu(PORT, response));
         } else if (mainChoice.mainMenu === 'add an employee') {
             printSeperator();
