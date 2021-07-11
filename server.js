@@ -5,7 +5,7 @@ const app = express();
 
 const apiRoutes = require('./routes/apiRoutes');
 
-const { beginInquiry } = require('./app');
+const { mainMenu } = require('./app');
 
 // Express middleware
 app.use(express.urlencoded({ extended: false }));
@@ -24,6 +24,6 @@ db.connect(err => {
 
     app.listen(PORT, () => {
         console.log(`Server running on port ${PORT}`);
-        beginInquiry(PORT);
+        mainMenu(PORT);
     });
 });

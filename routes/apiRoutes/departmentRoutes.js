@@ -18,17 +18,17 @@ router.get('/', (req, res) => {
 });
 
 // Adds a department
-router.post('/', ({ body }, res) => {
+router.post('/', (req, res) => {
     const sql = `INSERT INTO departments (name) VALUES (?)`;
 
-    db.query(sql, [body.name], (err, result) => {
+    db.query(sql, req.body.name, (err, result) => {
         if (err) {
             res.status(400).json({ error: err.message });
             return;
         }
         res.json({
             message: 'success',
-            data: body,
+            data: req.body,
             changes: result.affectedRows
         });
     });
